@@ -15,6 +15,8 @@
 		"noImplicitReturns": true,
 		"skipLibCheck": true,
 		"paths": {
+			"$components": ["./src/components"],
+			"$components/*": ["./src/components/*"],
 			"$constants": ["./src/constants"],
 			"$constants/*": ["./src/constants/*"],
 			"$lib": ["./src/lib"],
@@ -25,5 +27,5 @@
 			"$types/*": ["./src/types/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
 }

@@ -35,5 +35,4 @@ export const statusBarExists = () => exists(`#${METRIX_STATUS_BAR_ID}`);
 export const makeSpaceForStatusBar = () =>
 	document.body.classList.add(BODY_WITH_STATUS_BAR_CLASS_NAME);
 
-export const postElementExists = (parent: Element) =>
-	exists(`.${METRIX_ELEMENT_CLASS_NAME}`, parent);
+export const ratingBarExists = (parent: Element) => exists(`[data-rating-bar]`, parent);
