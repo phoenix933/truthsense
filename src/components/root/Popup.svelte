@@ -3,8 +3,6 @@
 	import type { Writable } from "svelte/store";
 	import { facebookUsed, twitterUsed, websitesUsed } from "$stores";
 
-	$: console.log("FACEBOOK USED", $facebookUsed)
-
 	const toggle = (store: Writable<boolean>, value: boolean) => store.set(value);
 </script>
 

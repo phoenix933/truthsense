@@ -4,9 +4,6 @@
 	import { getWebsites } from "$lib/api";
 	import { onMount } from "svelte";
 	import { ratingBarExists } from "$lib/dom";
-	import { facebookUsed } from "$stores";
-
-	$: console.log("FACEBOOK USED INDEED", $facebookUsed)
 
 	const CARD_SELECTOR = "div[role=article] div[aria-hidden].x6ikm8r.x10wlt62";
 	const WEBSITE_SELECTOR = "span.x676frb > span.xlyipyv.xuxw1ft";
@@ -14,8 +11,6 @@
 	let allWebsites: WebsitesMap;
 
 	function onScroll() {
-		console.log("onScroll");
-
 		const cardElements = [...(document.querySelectorAll(CARD_SELECTOR) as any)]
 			// Make sure to select only visible cards
 			.filter((el) => el.clientHeight);
