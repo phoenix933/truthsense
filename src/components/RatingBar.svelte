@@ -13,7 +13,7 @@
 	</span>
 
 	<div class="progress-bar">
-		<div class="progress" style="width: ${website.rating}%;" />
+		<div class="progress" style:width={`${website.rating}%`} />
 	</div>
 
 	<span class="rating">
