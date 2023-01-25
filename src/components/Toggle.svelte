@@ -12,24 +12,31 @@
 
 <style lang="scss">
 	.toggle {
-		$height: 20px;
-		$width: 48px;
-		$padding: 4px;
-
 		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
 
 		background: none;
 		border: none;
 		padding: 0;
 
+        margin: 6px 0;
+
 		.label {
-			margin-right: 16px;
 			color: white;
+            text-align: left;
 		}
 
 		.switch {
+			$height: 20px;
+			$width: 48px;
+			$padding: 4px;
+
+            flex: auto 0 0;
+
 			display: inline-block;
 			background: #ccc;
 			border-radius: 16px;

@@ -15,14 +15,23 @@
 	<Toggle bind:checked>
 		Включи във Facebook
 	</Toggle>
+
+	<Toggle bind:checked>
+		Включи в Twitter
+	</Toggle>
+
+	<Toggle bind:checked>
+		Включи в медийни уебсайтове
+	</Toggle>
 </div>
 
 <style lang="scss">
 	h1 {
 		display: flex;
 		align-items: center;
-		margin: 0;
+		margin: 0 0 16px;
 		font-size: 18px;
+		font-weight: 400;
 
 		img {
 			height: 16px;
