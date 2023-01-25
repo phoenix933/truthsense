@@ -1,8 +1,29 @@
 <script lang="ts">
 	import RatingBar from "./RatingBar.svelte";
 	import type { Website } from "$types";
+	import { getStickyElements } from "$lib/dom";
+	import { onDestroy, onMount } from "svelte";
 
 	export let website: Website;
+
+	const HEIGHT = "40px";
+
+	let stickyElements: HTMLElement[];
+
+	function setStickyTopPosition(top: string) {
+		document.body.style.paddingTop = top;
+		stickyElements.forEach((el: HTMLElement) => (el.style.top = top));
+	}
+
+	onMount(() => {
+		stickyElements = getStickyElements();
+
+		setStickyTopPosition(HEIGHT);
+	});
+
+	onDestroy(() => {
+		setStickyTopPosition("0px");
+	});
 </script>
 
 <!-- Do NOT delete data attribute. It's used in stickyBarExists() function. -->
@@ -11,8 +32,6 @@
 </div>
 
 <style lang="scss">
-	$height: 40px;
-
 	#sticky-bar {
 		position: fixed;
 		top: 0;
@@ -29,10 +48,5 @@
 		height: 40px;
 		padding: 0;
 		justify-content: center;
-	}
-
-	:global(body) {
-		padding-top: $height !important;
-		transition: padding 0.5s ease-in-out !important;
 	}
 </style>
