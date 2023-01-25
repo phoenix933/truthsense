@@ -5,14 +5,15 @@
 	export let website: Website;
 </script>
 
-<div id="nmx-status-bar">
+<!-- Do NOT delete data attribute. It's used in stickyBarExists() function. -->
+<div id="sticky-bar" data-sticky-rating-bar="true">
 	<RatingBar {website} />
 </div>
 
 <style lang="scss">
 	$height: 40px;
 
-	#nmx-status-bar {
+	#sticky-bar {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -24,7 +25,7 @@
 		box-shadow: 0px 2px 12px 4px rgb(0 0 0 / 75%);
 	}
 
-	#nmx-status-bar > :global(*) {
+	#sticky-bar > :global(*) {
 		height: 40px;
 		padding: 0;
 		justify-content: center;

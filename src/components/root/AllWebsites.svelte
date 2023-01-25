@@ -1,8 +1,8 @@
 <script lang="ts">
-	import HeaderRatingBar from "$components/HeaderRatingBar.svelte";
+	import StickyRatingBar from "$components/StickyRatingBar.svelte";
 	import { getWebsites } from "$lib/api";
 	import { listenForBodyChanges } from "$lib/observer";
-	import { statusBarExists } from "$lib/elements";
+	import { stickyBarExists } from "$lib/dom";
 	import type { Website, WebsitesMap } from "$types";
 	import { onMount, onDestroy } from "svelte";
 
@@ -12,7 +12,7 @@
 	function updateUi(website: Website) {
 		const statusBarElement = document.createElement("div");
 
-		new HeaderRatingBar({
+		new StickyRatingBar({
 			target: statusBarElement,
 			props: {
 				website,
@@ -25,7 +25,7 @@
 	function updateUiIfNeeded() {
 		const thisWebsite = allWebsites?.[location.hostname];
 
-		if (!statusBarExists() && thisWebsite) {
+		if (!stickyBarExists() && thisWebsite) {
 			updateUi(thisWebsite);
 		}
 

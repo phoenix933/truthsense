@@ -3,7 +3,7 @@
 	import type { WebsitesMap } from "$types";
 	import { getWebsites } from "$lib/api";
 	import { onMount } from "svelte";
-	import { ratingBarExists } from "$lib/elements";
+	import { ratingBarExists } from "$lib/dom";
 
 	const CARD_SELECTOR = "div[role=article] div[aria-hidden].x6ikm8r.x10wlt62";
 	const WEBSITE_SELECTOR = "span.x676frb > span.xlyipyv.xuxw1ft";

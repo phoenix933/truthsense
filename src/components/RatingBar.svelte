@@ -4,6 +4,7 @@
 	export let website: Website;
 </script>
 
+<!-- Do NOT delete data attribute. It's used in ratingBarExists() function. -->
 <div class="rating-bar" data-rating-bar="true">
 	<img src="/favicon.ico" alt="icon" />
 
