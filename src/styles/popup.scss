@@ -1,0 +1,31 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+
+	background: rgb(38, 38, 38);
+	color: rgb(238 239 233);
+}
+
+#app {
+    width: 280px;
+    padding: 24px 36px;
+}
+
+h1 {
+	display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 22px;
+    
+
+    img {
+        height: 20px;
+        margin-right: 8px;
+        color: white;
+    }
+}

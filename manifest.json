@@ -1,0 +1,18 @@
+{
+	"manifest_version": 3,
+	"name": "CRXJS Vanilla JS Example",
+	"version": "1.0.0",
+	"action": { "default_popup": "index.html" },
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"exclude_matches": ["*://*.facebook.com/*"],
+			"js": ["src/matches/all.ts"]
+		},
+		{
+			"matches": ["*://*.facebook.com/*"],
+			"js": ["src/matches/facebook.ts"]
+		}
+	],
+	"permissions": ["storage"]
+}
