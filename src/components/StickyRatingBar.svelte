@@ -18,7 +18,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 9999999;
+		z-index: 2147483644;
 
 		padding: 0;
 

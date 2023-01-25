@@ -35,6 +35,7 @@
 
 		img {
 			height: 20px;
+			max-width: 20px;
 			margin-right: 6px;
 		}
 
