@@ -1,8 +1,19 @@
 <script lang="ts">
+	import { createEventDispatcher } from "svelte";
+
 	export let checked: boolean;
+
+	const dispatch = createEventDispatcher();
+	const change = (checked: boolean) => dispatch("change", checked);
+
+	function toggle() {
+		checked = !checked;
+
+		change(checked);
+	}
 </script>
 
-<button class="toggle" on:click={() => (checked = !checked)}>
+<button class="toggle" on:click={toggle}>
 	<span class="label">
 		<slot />
 	</span>
@@ -15,19 +26,19 @@
 		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
-        justify-content: space-between;
+		justify-content: space-between;
 
-        width: 100%;
+		width: 100%;
 
 		background: none;
 		border: none;
 		padding: 0;
 
-        margin: 6px 0;
+		margin: 6px 0;
 
 		.label {
 			color: white;
-            text-align: left;
+			text-align: left;
 		}
 
 		.switch {
@@ -35,7 +46,7 @@
 			$width: 48px;
 			$padding: 4px;
 
-            flex: auto 0 0;
+			flex: auto 0 0;
 
 			display: inline-block;
 			background: #ccc;

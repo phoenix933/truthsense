@@ -1,26 +1,27 @@
 <script lang="ts">
 	import Toggle from "$components/Toggle.svelte";
+	import type { Writable } from "svelte/store";
+	import { facebookUsed, twitterUsed, websitesUsed } from "$stores";
 
-	let checked = true
+	$: console.log("FACEBOOK USED", $facebookUsed)
 
-	$: console.log(checked)
+	const toggle = (store: Writable<boolean>, value: boolean) => store.set(value);
 </script>
 
 <div class="popup">
-
 	<h1>
 		<img src="/icons/gear.svg" alt="Settings icon" /> TruthSense настройки
 	</h1>
 
-	<Toggle bind:checked>
+	<Toggle checked={$facebookUsed} on:change={({ detail }) => toggle(facebookUsed, detail)}>
 		Включи във Facebook
 	</Toggle>
 
-	<Toggle bind:checked>
+	<Toggle checked={$twitterUsed} on:change={({ detail }) => toggle(twitterUsed, detail)}>
 		Включи в Twitter
 	</Toggle>
 
-	<Toggle bind:checked>
+	<Toggle checked={$websitesUsed} on:change={({ detail }) => toggle(websitesUsed, detail)}>
 		Включи в медийни уебсайтове
 	</Toggle>
 </div>
@@ -39,8 +40,4 @@
 			color: white;
 		}
 	}
-
-	//
-
-	
 </style>

@@ -1,4 +1,4 @@
-import { WebsitesMap } from "$types";
+import type { WebsitesMap } from "$types";
 
 const API_URL = "https://svelte-latest.web.app/ratings.json";
 
