@@ -9,7 +9,7 @@
 
 <div class="popup">
 	<h1>
-		<Gear height="16px" /> TruthSense настройки
+		<Gear /> TruthSense настройки
 	</h1>
 
 	<Toggle checked={$facebookUsed} on:change={({ detail }) => toggle(facebookUsed, detail)}>
