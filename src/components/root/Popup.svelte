@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Gear from "$components/icons/Gear.svelte";
 	import Toggle from "$components/Toggle.svelte";
 	import type { Writable } from "svelte/store";
 	import { facebookUsed, twitterUsed, websitesUsed } from "$stores";
@@ -8,7 +9,7 @@
 
 <div class="popup">
 	<h1>
-		<img src="/icons/gear.svg" alt="Settings icon" /> TruthSense настройки
+		<Gear height="16px" /> TruthSense настройки
 	</h1>
 
 	<Toggle checked={$facebookUsed} on:change={({ detail }) => toggle(facebookUsed, detail)}>
@@ -28,14 +29,9 @@
 	h1 {
 		display: flex;
 		align-items: center;
+		gap: 8px;
 		margin: 0 0 16px;
 		font-size: 18px;
 		font-weight: 400;
-
-		img {
-			height: 16px;
-			margin-right: 8px;
-			color: white;
-		}
 	}
 </style>
