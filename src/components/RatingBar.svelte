@@ -2,6 +2,20 @@
 	import type { Website } from "$types";
 
 	export let website: Website;
+
+	function getRatingLevel(rating: number) {
+		if (rating === 100) {
+			return 100;
+		} else if (rating >= 80 && rating < 100) {
+			return 80;
+		} else if (rating >= 60 && rating < 80) {
+			return 60;
+		} else if (rating >= 40 && rating < 60) {
+			return 40;
+		} else {
+			return 0;
+		}
+	}
 </script>
 
 <!-- Do NOT delete data attribute. It's used in ratingBarExists() function. -->
@@ -13,7 +27,10 @@
 	</span>
 
 	<div class="progress-bar">
-		<div class="progress" style:width={`${website.rating}%`} />
+		<div
+			class="progress rating-{getRatingLevel(website.rating)}"
+			style:width={`${website.rating}%`}
+		/>
 	</div>
 
 	<span class="rating">
@@ -48,9 +65,28 @@
 			margin: 0 4px;
 
 			.progress {
-				background: red;
 				height: 100%;
 				border-radius: 6px;
+
+				&.rating-100 {
+					background: #8cd473;
+				}
+
+				&.rating-80 {
+					background: #5fad64;
+				}
+
+				&.rating-60 {
+					background: #f8d66d;
+				}
+
+				&.rating-40 {
+					background: #ff8e4c;
+				}
+
+				&.rating-0 {
+					background: #ff4e45;
+				}
 			}
 		}
 
