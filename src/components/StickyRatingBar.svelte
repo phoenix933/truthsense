@@ -44,7 +44,7 @@
 		box-shadow: 0px 2px 12px 4px rgb(0 0 0 / 75%);
 	}
 
-	#sticky-bar > :global(*) {
+	#sticky-bar > :global(.rating-bar) {
 		height: 40px;
 		padding: 0;
 		justify-content: center;

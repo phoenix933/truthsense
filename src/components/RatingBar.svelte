@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Check from "$components/icons/Check.svelte";
+	import DetailsModal from "$components/DetailsModal.svelte";
 	import EmptyCheck from "./icons/EmptyCheck.svelte";
 	import Exclamation from "./icons/Exclamation.svelte";
 	import Radiation from "./icons/Radiation.svelte";
@@ -7,6 +8,7 @@
 	import type { Website } from "$types";
 	import Xmark from "./icons/Xmark.svelte";
 	import { calculateRating, getNumberOfPassedCriteria, getRatingLevel } from "$lib/rating";
+	import Info from "./icons/Info.svelte";
 
 	export let website: Website;
 
@@ -17,6 +19,8 @@
 		[RatingLevel.LowCredibility]: Xmark,
 		[RatingLevel.NotCredible]: Radiation,
 	};
+
+	let showModal = false;
 
 	$: rating = calculateRating(website.criteria);
 	$: level = getRatingLevel(rating);
@@ -44,7 +48,15 @@
 	<span class="rating">
 		{rating}% ({passedCriteria}/{totalCriteria})
 	</span>
+
+	<button type="button" class="info" on:click={() => (showModal = true)}>
+		<Info />
+	</button>
 </div>
+
+{#if showModal}
+	<DetailsModal {website} on:close={() => (showModal = false)} />
+{/if}
 
 <style lang="scss">
 	.rating-bar {
@@ -54,9 +66,8 @@
 		padding: 12px 16px;
 
 		font-size: 13px;
-
+		color: #ededed;
 		background: rgb(38, 38, 38);
-		color: rgb(238 239 233);
 
 		img {
 			height: 20px;
@@ -112,6 +123,19 @@
 
 		&.rating-0 {
 			--color: #ff4e45;
+		}
+
+		button {
+			height: 20px;
+			width: 20px;
+			padding: 0;
+			border: none;
+			background-color: transparent;
+			color: white;
+
+			cursor: pointer;
+
+			margin-left: 8px;
 		}
 	}
 </style>
