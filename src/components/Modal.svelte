@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IconButton from "$components/IconButton.svelte";
 	import Xmark from "$icons/Xmark.svelte";
 	import { createEventDispatcher, onDestroy, onMount } from "svelte";
 
@@ -18,9 +19,9 @@
 </script>
 
 <dialog bind:this={dialog}>
-	<button type="button" on:click={close}>
+	<IconButton --size="34px" on:click={close}>
 		<Xmark />
-	</button>
+	</IconButton>
 
 	<slot />
 </dialog>
@@ -38,25 +39,10 @@
 		color: rgb(238 239 233);
 		padding: 3rem 2.5rem;
 
-		button {
-			height: 34px;
-			width: 34px;
-			padding: 0;
-			background: transparent;
-			border: none;
-
-			color: #ededed;
-			cursor: pointer;
-
+		:global(button) {
 			position: absolute;
 			top: 18px;
 			right: 18px;
-
-			transition: all 0.1s ease-in-out;
-
-			&:hover {
-				filter: brightness(0.8);
-			}
 		}
 
 		&::backdrop {

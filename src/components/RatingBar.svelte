@@ -3,6 +3,7 @@
 	import DetailsModal from "$components/DetailsModal.svelte";
 	import EmptyCheck from "$icons/EmptyCheck.svelte";
 	import Exclamation from "$icons/Exclamation.svelte";
+	import IconButton from "$components/IconButton.svelte";
 	import Info from "$icons/Info.svelte";
 	import Radiation from "$icons/Radiation.svelte";
 	import { RatingLevel } from "$types/RatingLevel";
@@ -49,9 +50,9 @@
 		{rating}% ({passedCriteria}/{totalCriteria})
 	</span>
 
-	<button type="button" class="info" on:click={() => (showModal = true)}>
+	<IconButton --color="white" --margin="0 8px" on:click={() => (showModal = true)}>
 		<Info />
-	</button>
+	</IconButton>
 </div>
 
 {#if showModal}
@@ -123,19 +124,6 @@
 
 		&.rating-0 {
 			--color: #ff4e45;
-		}
-
-		button {
-			height: 20px;
-			width: 20px;
-			padding: 0;
-			border: none;
-			background-color: transparent;
-			color: white;
-
-			cursor: pointer;
-
-			margin-left: 8px;
 		}
 	}
 </style>
