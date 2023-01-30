@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Xmark from "./icons/Xmark.svelte";
+	import Xmark from "$icons/Xmark.svelte";
 	import { createEventDispatcher, onDestroy, onMount } from "svelte";
 
 	const dispatch = createEventDispatcher();

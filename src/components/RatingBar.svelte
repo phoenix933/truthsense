@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Check from "$components/icons/Check.svelte";
+	import Check from "$icons/Check.svelte";
 	import DetailsModal from "$components/DetailsModal.svelte";
-	import EmptyCheck from "./icons/EmptyCheck.svelte";
-	import Exclamation from "./icons/Exclamation.svelte";
-	import Radiation from "./icons/Radiation.svelte";
+	import EmptyCheck from "$icons/EmptyCheck.svelte";
+	import Exclamation from "$icons/Exclamation.svelte";
+	import Info from "$icons/Info.svelte";
+	import Radiation from "$icons/Radiation.svelte";
 	import { RatingLevel } from "$types/RatingLevel";
 	import type { Website } from "$types";
-	import Xmark from "./icons/Xmark.svelte";
+	import Xmark from "$icons/Xmark.svelte";
 	import { calculateRating, getNumberOfPassedCriteria, getRatingLevel } from "$lib/rating";
-	import Info from "./icons/Info.svelte";
 
 	export let website: Website;
 

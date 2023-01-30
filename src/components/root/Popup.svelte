@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Gear from "$components/icons/Gear.svelte";
+	import Gear from "$icons/Gear.svelte";
 	import Toggle from "$components/Toggle.svelte";
 	import type { Writable } from "svelte/store";
 	import { facebookUsed, twitterUsed, websitesUsed } from "$stores";

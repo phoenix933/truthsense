@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Check from "./icons/Check.svelte";
-	import Xmark from "./icons/Xmark.svelte";
+	import Check from "$icons/Check.svelte";
+	import Xmark from "$icons/Xmark.svelte";
 	import Modal from "./Modal.svelte";
 	import type { Website } from "$types";
 

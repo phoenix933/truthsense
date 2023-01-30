@@ -19,6 +19,8 @@
 		"paths": {
 			"$components": ["./src/components"],
 			"$components/*": ["./src/components/*"],
+			"$icons": ["./src/components/icons"],
+			"$icons/*": ["./src/components/icons/*"],
 			"$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"],
 			"$stores": ["./src/stores"],

@@ -11,6 +11,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			$components: [path.resolve(__dirname, "./src/components")],
+			$icons: [path.resolve(__dirname, "./src/components/icons")],
 			$lib: [path.resolve(__dirname, "./src/lib")],
 			$stores: [path.resolve(__dirname, "./src/stores")],
 			$styles: [path.resolve(__dirname, "./src/styles")],
