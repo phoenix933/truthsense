@@ -6,7 +6,7 @@
 	import { RatingLevel } from "$types/RatingLevel";
 	import type { Website } from "$types";
 	import Xmark from "./icons/Xmark.svelte";
-	import { getRatingLevel } from "$lib/rating";
+	import { calculateRating, getNumberOfPassedCriteria, getRatingLevel } from "$lib/rating";
 
 	export let website: Website;
 
@@ -18,7 +18,11 @@
 		[RatingLevel.NotCredible]: Radiation,
 	};
 
-	$: level = getRatingLevel(website.rating);
+	$: rating = calculateRating(website.criteria);
+	$: level = getRatingLevel(rating);
+
+	$: passedCriteria = getNumberOfPassedCriteria(website.criteria);
+	$: totalCriteria = website.criteria.length;
 </script>
 
 <!-- Do NOT delete data attribute. It's used in ratingBarExists() function. -->
@@ -34,11 +38,11 @@
 	</span>
 
 	<div class="progress-bar">
-		<div class="progress" style:width={`${website.rating}%`} />
+		<div class="progress" style:width={`${rating}%`} />
 	</div>
 
 	<span class="rating">
-		{website.rating}% (6/9)
+		{rating}% ({passedCriteria}/{totalCriteria})
 	</span>
 </div>
 
@@ -61,7 +65,7 @@
 		}
 
 		.icon {
-			height: 16px;
+			display: flex;
 			color: var(--color);
 			margin-left: 8px;
 

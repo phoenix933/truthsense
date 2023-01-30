@@ -1,5 +1,5 @@
 export type Website = {
-  name: string;
-  domain: string;
-  rating: number;
+	name: string;
+	domain: string;
+	criteria: boolean[];
 };
