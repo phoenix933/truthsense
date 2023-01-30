@@ -39,7 +39,9 @@
 	</span>
 
 	<span class="icon">
-		<svelte:component this={icons[level]} />
+		<IconButton --size="16px" on:click={() => (showModal = true)}>
+			<svelte:component this={icons[level]} />
+		</IconButton>
 	</span>
 
 	<div class="progress-bar">
@@ -81,8 +83,10 @@
 			color: var(--color);
 			margin-left: 8px;
 
-			:global(svg) {
-				height: 16px;
+			transition: all 0.25s ease-in-out;
+
+			&:hover {
+				transform: rotate(90deg);
 			}
 		}
 
