@@ -1,13 +1,17 @@
 :root {
-    --main-background-color: #1c1c1c;
-    --main-text-color: #ededed;
+	--main-background-color: #1c1c1c;
+	--main-text-color: #ededed;
 
-    --secondary-background-color: #232323;
-    --secondary-text-color: #bbb;
+	--secondary-background-color: #232323;
+	--secondary-text-color: #bbb;
 
-    --green: #8cd473;
-    --dark-green: #5fad64;
-    --yellow: #f8d66d;
-    --orange: #ff8e4c;
-    --red: #fe716a;
+	--green: #8cd473;
+	--dark-green: #5fad64;
+	--yellow: #f8d66d;
+	--orange: #ff8e4c;
+	--red: #fe716a;
+}
+
+.no-scroll {
+	overflow: hidden;
 }
