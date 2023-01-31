@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { ExtendedEvent } from "$types/ExtendedEvent";
 	import IconButton from "$components/IconButton.svelte";
 	import Xmark from "$icons/Xmark.svelte";
 	import { createEventDispatcher, onDestroy, onMount } from "svelte";
@@ -7,6 +8,20 @@
 	const close = () => dispatch("close");
 
 	let dialog: HTMLDialogElement;
+
+	function handleClick(event: ExtendedEvent<MouseEvent, HTMLDialogElement | any>) {
+		const rect = event.target?.getBoundingClientRect();
+
+		const isBackdropClick =
+			rect.left > event.clientX ||
+			rect.right < event.clientX ||
+			rect.top > event.clientY ||
+			rect.bottom < event.clientY;
+
+		if (isBackdropClick) {
+			close();
+		}
+	}
 
 	onMount(() => {
 		dialog.showModal();
@@ -17,7 +32,8 @@
 	});
 </script>
 
-<dialog bind:this={dialog}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<dialog bind:this={dialog} on:click={handleClick}>
 	<IconButton --size="34px" on:click={close}>
 		<Xmark />
 	</IconButton>
