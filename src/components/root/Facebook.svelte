@@ -1,16 +1,18 @@
 <script lang="ts">
 	import RatingBar from "$components/RatingBar.svelte";
 	import type { WebsitesMap } from "$types";
+	import { facebookUsed } from "$stores";
 	import { getWebsites } from "$lib/api";
-	import { onMount } from "svelte";
 	import { ratingBarExists } from "$lib/dom";
+	import { onMount, onDestroy } from "svelte";
 
 	const CARD_SELECTOR = "div[role=article] div[aria-hidden].x6ikm8r.x10wlt62";
 	const WEBSITE_SELECTOR = "span.x676frb > span.xlyipyv.xuxw1ft";
 
+	const mountedElements: { parent: HTMLElement; component: RatingBar }[] = [];
 	let allWebsites: WebsitesMap;
 
-	function onScroll() {
+	function listener() {
 		const cardElements = [...(document.querySelectorAll(CARD_SELECTOR) as any)]
 			// Make sure to select only visible cards
 			.filter((el) => el.clientHeight);
@@ -32,7 +34,7 @@
 				if (!elementExists && thisWebsite) {
 					const newElement = document.createElement("div");
 
-					new RatingBar({
+					const component = new RatingBar({
 						target: newElement,
 						props: {
 							website: thisWebsite,
@@ -40,6 +42,8 @@
 					});
 
 					websiteParentElement.appendChild(newElement);
+
+					mountedElements.push({ parent: newElement, component });
 				}
 			}
 		});
@@ -53,9 +57,36 @@
 		}
 	}
 
+	function enable() {
+		window.addEventListener("scroll", listener);
+
+		listener();
+	}
+
+	function disable() {
+		window.removeEventListener("scroll", listener);
+
+		mountedElements.forEach(({ parent, component }) => {
+			component.$destroy();
+			parent.parentElement?.removeChild(parent);
+		});
+	}
+
+	function onFacebookUsedChange(used: boolean) {
+		if (used) {
+			enable();
+		} else {
+			disable();
+		}
+	}
+
 	onMount(() => {
 		fetchWebsites();
 	});
-</script>
 
-<svelte:window on:scroll={onScroll} />
+	onDestroy(() => {
+		disable();
+	});
+
+	$: onFacebookUsedChange($facebookUsed);
+</script>
