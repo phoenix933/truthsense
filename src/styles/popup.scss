@@ -11,9 +11,8 @@ body {
 }
 
 body {
-	background: rgb(38, 38, 38);
-	color: rgb(238 239 233);
-	font-family: -apple-system, "Roboto", "Helvetica Neue", "Segoe UI", sans-serif;
+	background: var(--main-background-color);
+	color: var(--main-text-color);
 }
 
 #app {

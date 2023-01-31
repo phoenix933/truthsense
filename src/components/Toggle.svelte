@@ -37,7 +37,7 @@
 		margin: 6px 0;
 
 		.label {
-			color: white;
+			color: var(--main-text-color);
 			text-align: left;
 		}
 
@@ -49,7 +49,7 @@
 			flex: auto 0 0;
 
 			display: inline-block;
-			background: #ccc;
+			background: var(--secondary-text-color);
 			border-radius: 16px;
 			width: $width;
 			height: $height;
@@ -77,7 +77,7 @@
 			}
 
 			&.checked {
-				background: #56c080;
+				background: var(--dark-green);
 
 				&:before {
 					left: calc($width - $height + $padding);
