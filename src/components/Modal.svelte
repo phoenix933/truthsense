@@ -9,6 +9,8 @@
 
 	let dialog: HTMLDialogElement;
 
+	const toggleBodyScrollable = () => document.body.classList.toggle("no-scroll");
+
 	function handleClick(event: ExtendedEvent<MouseEvent, HTMLDialogElement | any>) {
 		const rect = event.target?.getBoundingClientRect();
 
@@ -24,10 +26,14 @@
 	}
 
 	onMount(() => {
+		toggleBodyScrollable();
+
 		dialog.showModal();
 	});
 
 	onDestroy(() => {
+		toggleBodyScrollable();
+
 		dialog.close();
 	});
 </script>
