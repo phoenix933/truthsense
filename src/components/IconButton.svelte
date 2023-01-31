@@ -13,7 +13,7 @@
 
 		margin: var(--margin, 0);
 
-		color: var(--color, white);
+		color: var(--color, var(--main-text-color));
 		cursor: pointer;
 
 		transition: all 0.1s ease-in-out;

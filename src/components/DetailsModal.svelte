@@ -44,7 +44,7 @@
 							{CRITERIA_DESCRIPTIONS[i]}
 						</td>
 
-						<td class="pass" class:check={criterium}>
+						<td style:color={criterium ? "var(--green)" : "var(--red)"}>
 							{#if criterium}
 								<Check />
 							{:else}
@@ -63,7 +63,6 @@
 		display: flex;
 		align-items: center;
 
-		color: #ededed;
 		font-size: 1.875rem;
 
 		img {
@@ -74,7 +73,7 @@
 
 	.main {
 		p {
-			color: #bbb;
+			color: var(--secondary-text-color);
 			margin-bottom: 1.5rem;
 		}
 	}
@@ -87,8 +86,7 @@
 		font-size: 14px;
 
 		thead {
-			background-color: #232323;
-			color: #ededed;
+			background-color: var(--secondary-background-color);
 			text-align: left;
 
 			th {
@@ -100,14 +98,6 @@
 			border: 1px solid #3e3e3e;
 			border-left: none;
 			padding: 2rem 1.5rem;
-
-			&.pass {
-				color: #fe716a;
-
-				&.check {
-					color: #8cd473;
-				}
-			}
 
 			&:last-child {
 				border-right: none;

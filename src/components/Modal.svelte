@@ -35,8 +35,8 @@
 		border: none;
 		box-shadow: 0px 7px 8px 5px rgb(0 0 0 / 50%);
 
-		background: #1c1c1c;
-		color: rgb(238 239 233);
+		background: var(--main-background-color);
+		color: var(--main-text-color);
 		padding: 3rem 2.5rem;
 
 		:global(button) {

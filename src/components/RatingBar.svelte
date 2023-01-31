@@ -52,7 +52,7 @@
 		{rating}% ({passedCriteria}/{totalCriteria})
 	</span>
 
-	<IconButton --color="white" --margin="0 8px" on:click={() => (showModal = true)}>
+	<IconButton --color="var(--main-text-color)" --margin="0 8px" on:click={() => (showModal = true)}>
 		<Info />
 	</IconButton>
 </div>
@@ -69,8 +69,8 @@
 		padding: 12px 16px;
 
 		font-size: 13px;
-		color: #ededed;
-		background: rgb(38, 38, 38);
+		color: var(--main-text-color);
+		background: var(--main-background-color);
 
 		img {
 			height: 20px;
@@ -95,7 +95,7 @@
 			height: 4px;
 			padding: 1px;
 			border-radius: 6px;
-			background-color: grey;
+			background-color: var(--secondary-text-color);
 			margin: 0 4px;
 
 			.progress {
@@ -107,27 +107,27 @@
 
 		.rating {
 			font-size: 11px;
-			color: #cecece;
+			color: var(--secondary-text-color);
 		}
 
 		&.rating-100 {
-			--color: #8cd473;
+			--color: var(--green);
 		}
 
 		&.rating-80 {
-			--color: #5fad64;
+			--color: var(--dark-green);
 		}
 
 		&.rating-60 {
-			--color: #f8d66d;
+			--color: var(--yellow);
 		}
 
 		&.rating-40 {
-			--color: #ff8e4c;
+			--color: var(--orange);
 		}
 
 		&.rating-0 {
-			--color: #ff4e45;
+			--color: var(--red);
 		}
 	}
 </style>

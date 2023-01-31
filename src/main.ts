@@ -1,3 +1,4 @@
+import "$styles/shared.scss";
 import "$styles/popup.scss";
 import Popup from "$components/root/Popup.svelte";
 
