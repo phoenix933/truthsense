@@ -2,7 +2,7 @@
 	import Gear from "$icons/Gear.svelte";
 	import Toggle from "$components/Toggle.svelte";
 	import type { Writable } from "svelte/store";
-	import { facebookUsed, twitterUsed, websitesUsed } from "$stores";
+	import { runOnFacebook, runOnTwitter, runOnMediaWebsites } from "$stores";
 
 	const toggle = (store: Writable<boolean>, value: boolean) => store.set(value);
 </script>
@@ -12,15 +12,15 @@
 		<Gear /> TruthSense настройки
 	</h1>
 
-	<Toggle checked={$facebookUsed} on:change={({ detail }) => toggle(facebookUsed, detail)}>
+	<Toggle checked={$runOnFacebook} on:change={({ detail }) => toggle(runOnFacebook, detail)}>
 		Включи във Facebook
 	</Toggle>
 
-	<Toggle checked={$twitterUsed} on:change={({ detail }) => toggle(twitterUsed, detail)}>
+	<Toggle checked={$runOnTwitter} on:change={({ detail }) => toggle(runOnTwitter, detail)}>
 		Включи в Twitter
 	</Toggle>
 
-	<Toggle checked={$websitesUsed} on:change={({ detail }) => toggle(websitesUsed, detail)}>
+	<Toggle checked={$runOnMediaWebsites} on:change={({ detail }) => toggle(runOnMediaWebsites, detail)}>
 		Включи в медийни уебсайтове
 	</Toggle>
 </div>

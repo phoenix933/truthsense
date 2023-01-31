@@ -1,9 +1,9 @@
 <script lang="ts">
 	import RatingBar from "$components/RatingBar.svelte";
 	import type { WebsitesMap } from "$types";
-	import { facebookUsed } from "$stores";
 	import { getWebsites } from "$lib/api";
 	import { ratingBarExists } from "$lib/dom";
+	import { runOnFacebook } from "$stores";
 	import { onMount, onDestroy } from "svelte";
 
 	const CARD_SELECTOR = "div[role=article] div[aria-hidden].x6ikm8r.x10wlt62";
@@ -88,5 +88,5 @@
 		disable();
 	});
 
-	$: onFacebookUsedChange($facebookUsed);
+	$: onFacebookUsedChange($runOnFacebook);
 </script>

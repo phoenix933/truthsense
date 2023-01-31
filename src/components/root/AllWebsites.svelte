@@ -3,7 +3,7 @@
 	import type { WebsitesMap } from "$types";
 	import { getWebsites } from "$lib/api";
 	import { onMount } from "svelte";
-	import { websitesUsed } from "$stores";
+	import { runOnMediaWebsites } from "$stores";
 
 	let allWebsites: WebsitesMap;
 
@@ -22,6 +22,6 @@
 	$: website = allWebsites?.[location.hostname];
 </script>
 
-{#if $websitesUsed && website}
+{#if $runOnMediaWebsites && website}
 	<StickyRatingBar {website} />
 {/if}
