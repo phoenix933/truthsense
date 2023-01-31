@@ -79,9 +79,11 @@
 	}
 
 	table {
+		--border-color: #3e3e3e;
+
 		width: 100%;
 		border-collapse: collapse;
-		border-color: #3e3e3e;
+		border-color: var(--border-color);
 
 		font-size: 14px;
 
@@ -95,7 +97,7 @@
 		}
 
 		td {
-			border: 1px solid #3e3e3e;
+			border: 1px solid var(--border-color);
 			border-left: none;
 			padding: 2rem 1.5rem;
 
