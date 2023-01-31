@@ -6,12 +6,16 @@
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
-			"exclude_matches": ["*://*.facebook.com/*"],
+			"exclude_matches": ["*://*.facebook.com/*", "*://*.twitter.com/*"],
 			"js": ["src/matches/all.ts"]
 		},
 		{
 			"matches": ["*://*.facebook.com/*"],
 			"js": ["src/matches/facebook.ts"]
+		},
+		{
+			"matches": ["*://*.twitter.com/*"],
+			"js": ["src/matches/twitter.ts"]
 		}
 	],
 	"permissions": ["storage"]
