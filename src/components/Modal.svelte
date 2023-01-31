@@ -9,7 +9,6 @@
 	let dialog: HTMLDialogElement;
 
 	onMount(() => {
-		console.log("ON MOUNT");
 		dialog.showModal();
 	});
 
