@@ -3,7 +3,6 @@
 	import DetailsModal from "$components/DetailsModal.svelte";
 	import EmptyCheck from "$icons/EmptyCheck.svelte";
 	import Exclamation from "$icons/Exclamation.svelte";
-	import IconButton from "$components/IconButton.svelte";
 	import Info from "$icons/Info.svelte";
 	import Radiation from "$icons/Radiation.svelte";
 	import { RatingLevel } from "$types/RatingLevel";
@@ -33,7 +32,11 @@
 
 <!-- Do NOT delete data attribute. It's used in ratingBarExists() function. -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="rating-bar rating-{level}" data-rating-bar="true" on:click|stopPropagation={() => showModal = true}>
+<div
+	class="rating-bar rating-{level}"
+	data-rating-bar="true"
+	on:click|stopPropagation={() => (showModal = true)}
+>
 	<img src="/favicon.ico" alt="icon" />
 
 	<span>
@@ -41,9 +44,7 @@
 	</span>
 
 	<span class="icon">
-		<IconButton --size="16px" on:click={() => (showModal = true)}>
-			<svelte:component this={icons[level]} />
-		</IconButton>
+		<svelte:component this={icons[level]} />
 	</span>
 
 	<div class="progress-bar">
@@ -54,9 +55,9 @@
 		{rating}% ({passedCriteria}/{totalCriteria})
 	</span>
 
-	<IconButton --color="var(--main-text-color)" --margin="0 8px" on:click={() => (showModal = true)}>
+	<span class="info">
 		<Info />
-	</IconButton>
+	</span>
 </div>
 
 {#if showModal}
@@ -74,6 +75,8 @@
 		color: var(--main-text-color);
 		background: var(--main-background-color);
 
+		cursor: pointer;
+
 		transition: all 0.15s ease-in-out;
 
 		&:hover {
@@ -86,11 +89,16 @@
 			margin-right: 6px;
 		}
 
-		.icon {
+		.icon,
+		.info {
 			display: flex;
-			color: var(--color);
+			height: 16px;
+			width: 16px;
 			margin-left: 8px;
+		}
 
+		.icon {
+			color: var(--color);
 			transition: all 0.25s ease-in-out;
 
 			&:hover {
