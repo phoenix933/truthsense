@@ -17,27 +17,28 @@
 
 		cardDetailElements.forEach((cardDetailElement: HTMLAnchorElement) => {
 			// Use this instead of the anchor tag element to prevent unnecessary link clicks.
-			const cardDetailParent = cardDetailElement.parentElement as HTMLDivElement;
+			const cardDetailParentElement =
+				cardDetailElement.parentElement as HTMLDivElement;
 
 			const websiteElement = cardDetailElement.querySelector(WEBSITE_SELECTOR);
 			const url = websiteElement?.textContent ?? "";
 
-			const elementExists = ratingBarExists(cardDetailParent);
+			const elementExists = ratingBarExists(cardDetailParentElement);
 
-			const thisWebsite = allWebsites?.["btvnovinite.bg" || url];
+			const thisWebsite = allWebsites?.[url];
 
 			if (!elementExists && thisWebsite) {
-				// cardDetailElement.style.flexDirection = "column";
 				const newElement = document.createElement("div");
 
 				new RatingBar({
 					target: newElement,
 					props: {
 						website: thisWebsite,
+						disableBackgroundScroll: false,
 					},
 				});
 
-				cardDetailParent.prepend(newElement);
+				cardDetailParentElement.prepend(newElement);
 			}
 		});
 	}

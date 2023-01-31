@@ -5,6 +5,7 @@
 	import type { Website } from "$types";
 
 	export let website: Website;
+	export let disableBackgroundScroll: boolean;
 
 	const CRITERIA_DESCRIPTIONS = [
 		"Не публикува невярно съдържание",
@@ -19,7 +20,7 @@
 	];
 </script>
 
-<Modal on:close>
+<Modal {disableBackgroundScroll} on:close>
 	<div class="header">
 		<img src="/favicon.ico" alt="icon" />
 

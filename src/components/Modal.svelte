@@ -4,6 +4,9 @@
 	import Xmark from "$icons/Xmark.svelte";
 	import { createEventDispatcher, onDestroy, onMount } from "svelte";
 
+	// Disabling the background scroll breaks the layout on Twitter.
+	export let disableBackgroundScroll = true;
+
 	const dispatch = createEventDispatcher();
 	const close = () => dispatch("close");
 
@@ -26,13 +29,17 @@
 	}
 
 	onMount(() => {
-		toggleBodyScrollable();
+		if (disableBackgroundScroll) {
+			toggleBodyScrollable();
+		}
 
 		dialog.showModal();
 	});
 
 	onDestroy(() => {
-		toggleBodyScrollable();
+		if (disableBackgroundScroll) {
+			toggleBodyScrollable();
+		}
 
 		dialog.close();
 	});

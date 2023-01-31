@@ -12,6 +12,7 @@
 	import { calculateRating, getNumberOfPassedCriteria, getRatingLevel } from "$lib/rating";
 
 	export let website: Website;
+	export let disableBackgroundScroll = true;
 
 	const icons = {
 		[RatingLevel.HighCredibility]: Check,
@@ -31,7 +32,8 @@
 </script>
 
 <!-- Do NOT delete data attribute. It's used in ratingBarExists() function. -->
-<div class="rating-bar rating-{level}" data-rating-bar="true">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="rating-bar rating-{level}" data-rating-bar="true" on:click|stopPropagation={() => showModal = true}>
 	<img src="/favicon.ico" alt="icon" />
 
 	<span>
@@ -58,7 +60,7 @@
 </div>
 
 {#if showModal}
-	<DetailsModal {website} on:close={() => (showModal = false)} />
+	<DetailsModal {website} {disableBackgroundScroll} on:close={() => (showModal = false)} />
 {/if}
 
 <style lang="scss">
@@ -71,6 +73,12 @@
 		font-size: 13px;
 		color: var(--main-text-color);
 		background: var(--main-background-color);
+
+		transition: all 0.15s ease-in-out;
+
+		&:hover {
+			background: var(--secondary-background-color);
+		}
 
 		img {
 			height: 20px;
