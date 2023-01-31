@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Check from "$icons/Check.svelte";
 	import Xmark from "$icons/Xmark.svelte";
-	import Modal from "./Modal.svelte";
+	import Modal from "$components/Modal.svelte";
 	import type { Website } from "$types";
 
 	export let website: Website;
@@ -33,7 +33,7 @@
 			<thead>
 				<tr>
 					<th>Критерий</th>
-					<th>Покрива ли този критерий?</th>
+					<th>Покрит ли е този критерий?</th>
 				</tr>
 			</thead>
 
