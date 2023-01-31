@@ -1,5 +1,5 @@
 <script lang="ts">
-	import RatingBar from "./RatingBar.svelte";
+	import RatingBar from "$components/RatingBar.svelte";
 	import type { Website } from "$types";
 	import { getStickyElements } from "$lib/dom";
 	import { onDestroy, onMount } from "svelte";
