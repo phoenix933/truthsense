@@ -22,7 +22,7 @@
 
 <Modal {disableBackgroundScroll} on:close>
 	<div class="header">
-		<img src="/favicon.ico" alt="icon" />
+		<img src="https://{website.domain}/favicon.ico" alt="icon" />
 
 		{website.name}
 	</div>

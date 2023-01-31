@@ -37,7 +37,7 @@
 	data-rating-bar="true"
 	on:click|stopPropagation={() => (showModal = true)}
 >
-	<img src="/favicon.ico" alt="icon" />
+	<img src="https://{website.domain}/favicon.ico" alt="icon" />
 
 	<span>
 		{website.name}
