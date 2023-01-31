@@ -4,6 +4,8 @@
 
 <style lang="scss">
 	button {
+		display: inline-flex;
+
 		height: var(--size, 20px);
 		width: var(--size, 20px);
 
