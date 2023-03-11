@@ -1,5 +1,6 @@
 import type { WebsitesMap } from "$types";
 
+// TODO: Use real ratings
 const API_URL = "https://svelte-latest.web.app/ratings.json";
 
 export async function getWebsites() {
