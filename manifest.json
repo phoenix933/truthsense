@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"name": "CRXJS Vanilla JS Example",
+	"name": "TruthSense",
 	"version": "1.0.0",
 	"action": { "default_popup": "index.html" },
 	"content_scripts": [
